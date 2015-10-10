@@ -8,7 +8,12 @@ package turma.bean;
 import turno.bean.TurnoBean;
 import modulo.bean.ModuloBean;
 import curso.bean.CursoBean;
+import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -17,7 +22,11 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="turmas")
-public class TurmaBean {
+public class TurmaBean implements Serializable{
+    @Id
+    @Column(name = "id")
+    @SequenceGenerator(name = "seq_turmas", sequenceName = "turmas_id_seq")
+    @GeneratedValue(generator = "seq_turmas")
     private Integer id;
     private String codigo;
     private ModuloBean modulo;
