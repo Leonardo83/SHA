@@ -13,7 +13,7 @@ import usuario.bean.UsuarioBean;
 import usuario.dao.UsuarioDao;
 import telas.JFPrincipal;
 import util.DaoException;
-import util.FrameWork;
+//import util.FrameWork;
 
 /**
  *
@@ -242,19 +242,20 @@ public class JFLogin extends javax.swing.JFrame {
     private void autenticar() {
         UsuarioBean login = new UsuarioBean();
         login.setUsuario(jTFUsuario.getText());
-        login.setSenha(FrameWork.criptografar(jPFSenha.getText()));
+  //      login.setSenha(FrameWork.criptografar(jPFSenha.getText()));
 
-        UsuarioDao loginDao = new UsuarioDao();
-        try {
-            if (loginDao.logar(login) != null) {
+    //    UsuarioDao loginDao = new UsuarioDao();
+       // try {
+      //      if (loginDao.logar(login) != null) {
                 this.setVisible(false);
                 new JFPrincipal().setVisible(true);
-            } else {
+         //   } else {
                 JOptionPane.showMessageDialog(this, "Usuário ou senha incorreta!", "Mensagem", WIDTH,
                         (new javax.swing.ImageIcon(getClass().getResource("/imagens/icons/info_64.png"))));
             }
-        } catch (DaoException ex) {
-            Logger.getLogger(JFLogin.class.getName()).log(Level.SEVERE, null, ex);
+        //} catch (DaoException ex) {
+    //        Logger.getLogger(JFLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-}
+   // }
+    
+//}
