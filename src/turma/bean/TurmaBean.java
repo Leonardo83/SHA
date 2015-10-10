@@ -8,11 +8,15 @@ package turma.bean;
 import turno.bean.TurnoBean;
 import modulo.bean.ModuloBean;
 import curso.bean.CursoBean;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 /**
  *
  * @author GRUPO KERNEL
  */
+@Entity
+@Table(name="turmas")
 public class TurmaBean {
     private Integer id;
     private String codigo;
