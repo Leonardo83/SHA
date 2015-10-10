@@ -9,10 +9,14 @@ import turno.bean.TurnoBean;
 import modulo.bean.ModuloBean;
 import curso.bean.CursoBean;
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -28,79 +32,99 @@ public class TurmaBean implements Serializable{
     @SequenceGenerator(name = "seq_turmas", sequenceName = "turmas_id_seq")
     @GeneratedValue(generator = "seq_turmas")
     private Integer id;
+    
     @Column(name="codigo")
     private String codigo;
+    
+    @ManyToOne
+    @JoinColumn(name="curso_id")
     private ModuloBean modulo;
+    
+    @OneToMany
+    @Column(name="id")
     private TurnoBean turno;
+    
+    @OneToMany
+    @JoinColumn(name="professor_id")
     private CursoBean curso;
 
-    /**
-     * @return the id
-     */
     public Integer getId() {
         return id;
     }
 
-    /**
-     * @param id the id to set
-     */
     public void setId(Integer id) {
         this.id = id;
     }
 
-    /**
-     * @return the codigo
-     */
     public String getCodigo() {
         return codigo;
     }
 
-    /**
-     * @param codigo the codigo to set
-     */
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
-    /**
-     * @return the modulo
-     */
     public ModuloBean getModulo() {
         return modulo;
     }
 
-    /**
-     * @param modulo the modulo to set
-     */
     public void setModulo(ModuloBean modulo) {
         this.modulo = modulo;
     }
 
-    /**
-     * @return the turno
-     */
     public TurnoBean getTurno() {
         return turno;
     }
 
-    /**
-     * @param turno the turno to set
-     */
     public void setTurno(TurnoBean turno) {
         this.turno = turno;
     }
 
-    /**
-     * @return the curso
-     */
     public CursoBean getCurso() {
         return curso;
     }
 
-    /**
-     * @param curso the curso to set
-     */
     public void setCurso(CursoBean curso) {
         this.curso = curso;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 71 * hash + Objects.hashCode(this.id);
+        hash = 71 * hash + Objects.hashCode(this.codigo);
+        hash = 71 * hash + Objects.hashCode(this.modulo);
+        hash = 71 * hash + Objects.hashCode(this.turno);
+        hash = 71 * hash + Objects.hashCode(this.curso);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final TurmaBean other = (TurmaBean) obj;
+        if (!Objects.equals(this.id, other.id)) {
+            return false;
+        }
+        if (!Objects.equals(this.codigo, other.codigo)) {
+            return false;
+        }
+        if (!Objects.equals(this.modulo, other.modulo)) {
+            return false;
+        }
+        if (!Objects.equals(this.turno, other.turno)) {
+            return false;
+        }
+        if (!Objects.equals(this.curso, other.curso)) {
+            return false;
+        }
+        return true;
+    }
+
+    
 }

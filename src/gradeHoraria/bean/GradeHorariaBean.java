@@ -5,7 +5,16 @@
  */
 package gradeHoraria.bean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import modulo.bean.ModuloBean;
 import professor.bean.ProfessorBean;
 import turma.bean.TurmaBean;
@@ -15,10 +24,24 @@ import turno.bean.TurnoBean;
  *
  * @author GRUPO KERNEL
  */
-public class GradeHorariaBean {
+@Entity
+@Table(name = "grades_horarias")
+public class GradeHorariaBean implements Serializable {
+
+    @Id
+    @Column(name = "id")
+    @SequenceGenerator(name = "seq_grades_horarias", sequenceName = "grades_horarias_id_seq")
+    @GeneratedValue(generator = "seq_grades_horarias")
     private Integer id;
+
+    @OneToOne
+    @JoinColumn(name = "id")
     private TurmaBean turma;
+    
+    
     private ArrayList<ProfessorBean> listaProfessores;
+    
+    
     private ModuloBean modulo;
     private TurnoBean turno;
 

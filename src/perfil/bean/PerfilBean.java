@@ -1,10 +1,17 @@
 package perfil.bean;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 /**
  *
  * @author GRUPO KERNEL
  */
-public class PerfilBean {
+@Entity
+@Table(name = "perfis")
+public class PerfilBean implements Serializable{
+    
     private Integer id;
     private String tipoPerfil;
 
