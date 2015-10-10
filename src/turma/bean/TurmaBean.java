@@ -28,6 +28,7 @@ public class TurmaBean implements Serializable{
     @SequenceGenerator(name = "seq_turmas", sequenceName = "turmas_id_seq")
     @GeneratedValue(generator = "seq_turmas")
     private Integer id;
+    @Column(name="codigo")
     private String codigo;
     private ModuloBean modulo;
     private TurnoBean turno;
