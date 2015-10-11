@@ -43,7 +43,7 @@ public class TesteInsercao {
         cb.setListaModulos(modulos);
         
         CursoDaoImpl cd = new CursoDaoImpl();
-        try {
+            try {
             cd.inserir(cb);
         } catch (DaoException ex) {
             Logger.getLogger(TesteInsercao.class.getName()).log(Level.SEVERE, null, ex);
