@@ -12,6 +12,6 @@ import util.BaseDao;
  *
  * @author pierre
  */
-public interface HorarioDao extends BaseDao<HorariosDiaBean>{
+public interface HorariosDiaDao extends BaseDao<HorariosDiaBean>{
     
 }

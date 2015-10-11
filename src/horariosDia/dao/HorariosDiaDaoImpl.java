@@ -12,9 +12,9 @@ import util.BaseDaoImpl;
  *
  * @author Kernel
  */
-public class HorarioDaoImpl extends BaseDaoImpl<HorariosDiaBean> implements HorarioDao{
+public class HorariosDiaDaoImpl extends BaseDaoImpl<HorariosDiaBean> implements HorariosDiaDao{
 
-    public HorarioDaoImpl() {
+    public HorariosDiaDaoImpl() {
         super(HorariosDiaBean.class);
     }
     
