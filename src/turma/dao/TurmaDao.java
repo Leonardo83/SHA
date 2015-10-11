@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gradeHoraria.dao;
+package turma.dao;
 
-
-import gradeHoraria.bean.GradeHorariaBean;
+import turma.bean.TurmaBean;
 import util.BaseDao;
 
 /**
  *
  * @author pierre
  */
-public interface GradeHorariaDao extends BaseDao<GradeHorariaBean>{
+public interface TurmaDao extends BaseDao<TurmaBean>{
     
 }

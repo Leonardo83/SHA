@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import turno.bean.TurnoBean;
-import turno.dao.TurnoDao;
+import turno.dao.TurnoDaoImpl;
 import util.DaoException;
 
 /**
@@ -14,7 +14,7 @@ import util.DaoException;
 public class TesteListagem {
 
     public static void main(String[] args) {
-        TurnoDao td = new TurnoDao();
+        TurnoDaoImpl td = new TurnoDaoImpl();
 
         try {
             ArrayList<TurnoBean> turnos = (ArrayList<TurnoBean>) td.listar();

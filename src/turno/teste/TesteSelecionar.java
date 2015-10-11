@@ -3,7 +3,7 @@ package turno.teste;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import turno.bean.TurnoBean;
-import turno.dao.TurnoDao;
+import turno.dao.TurnoDaoImpl;
 import util.DaoException;
 
 /**
@@ -12,7 +12,7 @@ import util.DaoException;
  */
 public class TesteSelecionar {
     public static void main(String[] args) {
-        TurnoDao td = new TurnoDao();
+        TurnoDaoImpl td = new TurnoDaoImpl();
         
         try {
             TurnoBean tb = (TurnoBean) td.selecionar(1);

@@ -6,12 +6,16 @@
 package perfil.dao;
 
 import perfil.bean.PerfilBean;
-import util.BaseDao;
+import util.BaseDaoImpl;
 
 /**
  *
- * @author pierre
+ * @author Kernel
  */
-public interface PerfilDao extends BaseDao<PerfilBean>{
+public class PerfilDaoImpl extends BaseDaoImpl<PerfilBean> implements PerfilDao{
+
+    public PerfilDaoImpl() {
+        super(PerfilBean.class);
+    }
     
 }

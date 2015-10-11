@@ -41,6 +41,7 @@ public class ModuloBean implements Serializable{
     @Column(name ="curso_id")
     private CursoBean curso;    
     
+    
     private ArrayList<DisciplinaBean> listaDisciplinas;
 
     /**

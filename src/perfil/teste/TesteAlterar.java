@@ -8,7 +8,7 @@ package perfil.teste;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import perfil.bean.PerfilBean;
-import perfil.dao.PerfilDao;
+import perfil.dao.PerfilDaoImpl;
 import util.DaoException;
 
 /**
@@ -23,7 +23,7 @@ public class TesteAlterar {
         
         
         
-        PerfilDao pd = new PerfilDao();
+        PerfilDaoImpl pd = new PerfilDaoImpl();
         
         try {
             pd.alterar(pb);

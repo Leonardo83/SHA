@@ -6,7 +6,7 @@
 package disciplina.teste;
 
 import disciplina.bean.DisciplinaBean;
-import disciplina.dao.DisciplinaDao;
+import disciplina.dao.DisciplinaDaoImpl;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.DaoException;
@@ -25,7 +25,7 @@ public class TesteAlteracao {
         db.setSigla("APSI");
         db.setCargaHoraria(80);        
         
-        DisciplinaDao dd = new DisciplinaDao();
+        DisciplinaDaoImpl dd = new DisciplinaDaoImpl();
        
         try {
             dd.alterar(db);

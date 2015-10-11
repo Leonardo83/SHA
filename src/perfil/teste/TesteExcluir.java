@@ -7,7 +7,8 @@ package perfil.teste;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import perfil.dao.PerfilDao;
+import perfil.bean.PerfilBean;
+import perfil.dao.PerfilDaoImpl;
 import util.DaoException;
 
 /**
@@ -15,11 +16,15 @@ import util.DaoException;
  * @author GRUPO KERNEL
  */
 public class TesteExcluir {
+
     public static void main(String[] args) {
-        PerfilDao pd = new PerfilDao();
+        PerfilBean pb = new PerfilBean();
+        pb.setId(1);
+        
+        PerfilDaoImpl pd = new PerfilDaoImpl();
         
         try {
-            pd.excluir(4);
+            pd.excluir(pb);
         } catch (DaoException ex) {
             Logger.getLogger(TesteExcluir.class.getName()).log(Level.SEVERE, null, ex);
         }

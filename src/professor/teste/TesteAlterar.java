@@ -3,7 +3,7 @@ package professor.teste;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import professor.bean.ProfessorBean;
-import professor.dao.ProfessorDao;
+import professor.dao.ProfessorDaoImpl;
 import util.DaoException;
 
 /**
@@ -20,7 +20,7 @@ public class TesteAlterar {
         pb.setSexo("M");
         pb.setCargo("Professor");
         
-        ProfessorDao pd = new ProfessorDao();
+        ProfessorDaoImpl pd = new ProfessorDaoImpl();
         
         try {
             pd.alterar(pb);

@@ -3,7 +3,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import turno.bean.TurnoBean;
-import turno.dao.TurnoDao;
+import turno.dao.TurnoDaoImpl;
 import util.DaoException;
 
 
@@ -16,7 +16,7 @@ public class TesteInsercao {
     public static void main(String[] args) throws DaoException {
         
         TurnoBean tb = new TurnoBean();
-        TurnoDao td = new TurnoDao();
+        TurnoDaoImpl td = new TurnoDaoImpl();
         
         tb.setTipoTurno("QUALQUER");
         

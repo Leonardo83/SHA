@@ -6,10 +6,10 @@
 package perfil.teste;
 
 import perfil.bean.PerfilBean;
-import perfil.dao.PerfilDao;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import perfil.dao.PerfilDaoImpl;
 import util.DaoException;
 
 /**
@@ -18,7 +18,7 @@ import util.DaoException;
  */
 public class TesteListar {
     public static void main(String[] args) {
-        PerfilDao pd = new PerfilDao();
+        PerfilDaoImpl pd = new PerfilDaoImpl();
         
         try {
             ArrayList<PerfilBean> perfis = (ArrayList<PerfilBean>) pd.listar();

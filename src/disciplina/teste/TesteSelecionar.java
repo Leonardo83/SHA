@@ -1,7 +1,7 @@
 package disciplina.teste;
 
 import disciplina.bean.DisciplinaBean;
-import disciplina.dao.DisciplinaDao;
+import disciplina.dao.DisciplinaDaoImpl;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.DaoException;
@@ -12,10 +12,10 @@ import util.DaoException;
  */
 public class TesteSelecionar {
     public static void main(String[] args) {
-        DisciplinaDao dd = new DisciplinaDao();
+        DisciplinaDaoImpl ddi = new DisciplinaDaoImpl();
         
         try {
-            DisciplinaBean db = (DisciplinaBean) dd.selecionar(2);
+            DisciplinaBean db = (DisciplinaBean) ddi.selecionar(2);
             
             System.out.println(db.getNome());
             System.out.println(db.getSigla());

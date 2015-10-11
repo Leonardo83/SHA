@@ -1,7 +1,7 @@
 package disciplina.teste;
 
 import disciplina.bean.DisciplinaBean;
-import disciplina.dao.DisciplinaDao;
+import disciplina.dao.DisciplinaDaoImpl;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,7 +14,7 @@ import util.DaoException;
 public class TesteListagem {
     
     public static void main(String[] args) {
-        DisciplinaDao dd = new DisciplinaDao();
+        DisciplinaDaoImpl dd = new DisciplinaDaoImpl();
                 
         try {
             ArrayList<DisciplinaBean> disciplinas = (ArrayList<DisciplinaBean>) dd.listar();

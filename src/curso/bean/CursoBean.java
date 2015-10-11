@@ -6,18 +6,18 @@
 package curso.bean;
 
 import java.io.Serializable;
-//import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-//import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-//import modulo.bean.ModuloBean;
+import modulo.bean.ModuloBean;
 import professor.bean.ProfessorBean;
 
 /**
@@ -50,9 +50,9 @@ public class CursoBean implements Serializable {
     @Column(name = "carga_horaria")
     private Integer cargaHoraria;
 
-   // @ManyToMany(mappedBy = "cursoBeans")
-    //private ArrayList<ModuloBean>listaModulos ;
-    //private ArrayList<ModuloBean> listaModulos;
+    @ManyToOne
+    @JoinColumn(name = "curso")
+    private ArrayList<ModuloBean> listaModulos;
 
     /**
      * @return the id
@@ -141,16 +141,16 @@ public class CursoBean implements Serializable {
     /**
      * @return the listaModulos
      */
-   // public ArrayList<ModuloBean> getListaModulos() {
-   //     return listaModulos;
-    //}
+    public ArrayList<ModuloBean> getListaModulos() {
+        return listaModulos;
+    }
 
     /**
      * @param listaModulos the listaModulos to set
      */
-    //public void setListaModulos(ArrayList<ModuloBean> listaModulos) {
-      //  this.listaModulos = listaModulos;
-    //}
+    public void setListaModulos(ArrayList<ModuloBean> listaModulos) {
+        this.listaModulos = listaModulos;
+    }
 
     @Override
     public int hashCode() {
@@ -161,7 +161,7 @@ public class CursoBean implements Serializable {
         hash = 67 * hash + Objects.hashCode(this.sigla);
         hash = 67 * hash + Objects.hashCode(this.coordenador);
         hash = 67 * hash + Objects.hashCode(this.cargaHoraria);
-    //    hash = 67 * hash + Objects.hashCode(this.listaModulos);
+        //    hash = 67 * hash + Objects.hashCode(this.listaModulos);
         return hash;
     }
 
@@ -192,9 +192,9 @@ public class CursoBean implements Serializable {
         if (!Objects.equals(this.cargaHoraria, other.cargaHoraria)) {
             return false;
         }
-      //  if (!Objects.equals(this.listaModulos, other.listaModulos)) {
-        //    return false;
-        //}
+        if (!Objects.equals(this.listaModulos, other.listaModulos)) {
+            return false;
+        }
         return true;
     }
 

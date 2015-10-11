@@ -1,11 +1,9 @@
 package professor.teste;
 
-import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import perfil.bean.PerfilBean;
 import professor.bean.ProfessorBean;
-import professor.dao.ProfessorDao;
+import professor.dao.ProfessorDaoImpl;
 import util.DaoException;
 
 /**
@@ -15,7 +13,7 @@ import util.DaoException;
 public class TesteSelecionar {
 
     public static void main(String[] args) {
-        ProfessorDao pd = new ProfessorDao();
+        ProfessorDaoImpl pd = new ProfessorDaoImpl();
 
         try {
             ProfessorBean professor = (ProfessorBean) pd.selecionar(1);

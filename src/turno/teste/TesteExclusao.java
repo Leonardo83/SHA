@@ -3,7 +3,8 @@ package turno.teste;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import turno.dao.TurnoDao;
+import turno.bean.TurnoBean;
+import turno.dao.TurnoDaoImpl;
 import util.DaoException;
 
 /**
@@ -13,10 +14,13 @@ import util.DaoException;
 public class TesteExclusao {
 
     public static void main(String[] args) {
-        TurnoDao td = new TurnoDao();
+        TurnoBean tb = new TurnoBean();
+        tb.setId(1);
+        
+        TurnoDaoImpl td = new TurnoDaoImpl();
 
         try {
-            if (td.excluir(4)) {
+            if (td.excluir(tb)) {
                 JOptionPane.showMessageDialog(null, "Turno excluido com sucesso!");
             } else {
                 JOptionPane.showMessageDialog(null, "Erro de exclusão!");

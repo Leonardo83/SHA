@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gradeHoraria.dao;
+
+package disciplinamodulo.dao;
 
 
-import gradeHoraria.bean.GradeHorariaBean;
+import disciplinamodulo.bean.DisciplinaModuloBean;
 import util.BaseDao;
 
 /**
  *
- * @author pierre
+ * @author KERNEL
  */
-public interface GradeHorariaDao extends BaseDao<GradeHorariaBean>{
-    
+public interface DisciplinaModuloDao extends BaseDao<DisciplinaModuloBean>{
 }

@@ -5,14 +5,18 @@
  */
 package gradeHoraria.dao;
 
-
 import gradeHoraria.bean.GradeHorariaBean;
-import util.BaseDao;
+import util.BaseDaoImpl;
 
 /**
  *
- * @author pierre
+ * @author Kernel
  */
-public interface GradeHorariaDao extends BaseDao<GradeHorariaBean>{
+public class GradeHorariaDaoImpl extends BaseDaoImpl<GradeHorariaBean> implements GradeHorariaDao
+{
+
+    public GradeHorariaDaoImpl() {
+        super(GradeHorariaBean.class);
+    }
     
 }

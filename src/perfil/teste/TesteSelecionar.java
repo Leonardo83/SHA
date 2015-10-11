@@ -8,7 +8,7 @@ package perfil.teste;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import perfil.bean.PerfilBean;
-import perfil.dao.PerfilDao;
+import perfil.dao.PerfilDaoImpl;
 import util.DaoException;
 
 /**
@@ -17,7 +17,7 @@ import util.DaoException;
  */
 public class TesteSelecionar {
     public static void main(String[] args) {
-        PerfilDao pd = new PerfilDao();
+        PerfilDaoImpl pd = new PerfilDaoImpl();
         
         try {
             PerfilBean pb = (PerfilBean) pd.selecionar(1);

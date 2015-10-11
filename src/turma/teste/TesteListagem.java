@@ -6,16 +6,16 @@
 package turma.teste;
 
 import curso.bean.CursoBean;
-import curso.dao.CursoDao;
+import curso.dao.CursoDaoImpl;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modulo.bean.ModuloBean;
-import modulo.dao.ModuloDao;
+import modulo.dao.ModuloDaoImpl;
 import turma.bean.TurmaBean;
-import turma.dao.TurmaDao;
+import turma.dao.TurmaDaoImpl;
 import turno.bean.TurnoBean;
-import turno.dao.TurnoDao;
+import turno.dao.TurnoDaoImpl;
 import util.DaoException;
 
 /**
@@ -25,10 +25,10 @@ import util.DaoException;
 public class TesteListagem {
     
     public static void main(String[] args) {
-        TurmaDao td = new TurmaDao();
-        CursoDao cd = new CursoDao();
-        TurnoDao turd = new TurnoDao();
-        ModuloDao md = new ModuloDao();
+        TurmaDaoImpl td = new TurmaDaoImpl();
+        CursoDaoImpl cd = new CursoDaoImpl();
+        TurnoDaoImpl turd = new TurnoDaoImpl();
+        ModuloDaoImpl md = new ModuloDaoImpl();
         
         CursoBean cb = new CursoBean();
         TurnoBean turb = new TurnoBean();
@@ -37,7 +37,7 @@ public class TesteListagem {
         try {
             ArrayList<TurmaBean> turmas = (ArrayList<TurmaBean>) td.listar();
             ArrayList<CursoBean> cursos = (ArrayList<CursoBean>) cd.listar();
-            ArrayList<TurnoBean> turnos = (ArrayList<TurnoBean>) td.listar();
+            ArrayList<TurnoBean> turnos = (ArrayList<TurnoBean>) turd.listar();
             ArrayList<ModuloBean> modulos = (ArrayList<ModuloBean>) md.listar();
             for (TurmaBean tb : turmas) {
                 System.out.println("Turma: " + tb.getCodigo() + " Curso: " + cb.getNome()

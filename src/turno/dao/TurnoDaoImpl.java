@@ -6,12 +6,16 @@
 package turno.dao;
 
 import turno.bean.TurnoBean;
-import util.BaseDao;
+import util.BaseDaoImpl;
 
 /**
  *
- * @author pierre
+ * @author Kernel
  */
-public interface TurnoDao extends BaseDao<TurnoBean>{
+public class TurnoDaoImpl extends BaseDaoImpl<TurnoBean> implements TurnoDao{
+
+    public TurnoDaoImpl() {
+        super(TurnoBean.class);
+    }
     
 }

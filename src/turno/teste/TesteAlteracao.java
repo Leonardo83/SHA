@@ -3,7 +3,7 @@ package turno.teste;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import turno.bean.TurnoBean;
-import turno.dao.TurnoDao;
+import turno.dao.TurnoDaoImpl;
 import util.DaoException;
 
 /**
@@ -18,7 +18,7 @@ public class TesteAlteracao {
         tb.setId(4);
         tb.setTipoTurno("MADRUGADA");
         
-        TurnoDao td = new TurnoDao();
+        TurnoDaoImpl td = new TurnoDaoImpl();
        
         try {
             td.alterar(tb);

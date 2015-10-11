@@ -5,12 +5,10 @@
  */
 package professor.teste;
 
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import perfil.bean.PerfilBean;
 import professor.bean.ProfessorBean;
-import professor.dao.ProfessorDao;
+import professor.dao.ProfessorDaoImpl;
 import util.DaoException;
 
 /**
@@ -18,12 +16,16 @@ import util.DaoException;
  * @author GRUPO KERNEL
  */
 public class TesterExcluir {
+
     public static void main(String[] args) {
-        
-        ProfessorDao pd = new ProfessorDao();
-        
+
+        ProfessorBean pb = new ProfessorBean();
+        pb.setId(1);
+
+        ProfessorDaoImpl pd = new ProfessorDaoImpl();
+
         try {
-            pd.excluir(1);
+            pd.excluir(pb);
         } catch (DaoException ex) {
             Logger.getLogger(TesterExcluir.class.getName()).log(Level.SEVERE, null, ex);
         }
