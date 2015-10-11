@@ -13,7 +13,7 @@ import util.DaoException;
 
 /**
  *
- * @author SGA
+ * @author GRUPO KERNEL
  */
 public class TesteAlteracao {
     

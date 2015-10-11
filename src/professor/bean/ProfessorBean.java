@@ -9,9 +9,16 @@ import gradeHoraria.bean.GradeHorariaBean;
 import funcionario.FuncionarioBean;
 import disciplina.bean.DisciplinaBean;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 /**
  *
@@ -22,35 +29,65 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name = "funcionario_id")
 public class ProfessorBean extends FuncionarioBean {
 
-    private ArrayList<DisciplinaBean> listaDisciplinas;
-    private ArrayList<GradeHorariaBean> listaGradesHorarias;
+    @OneToMany(mappedBy = "disciplina",targetEntity = DisciplinaBean.class, fetch = FetchType.LAZY)
+    @Cascade(CascadeType.ALL)
+    private List<DisciplinaBean> listaDisciplinas;
+    
+    
+    private List<GradeHorariaBean> listaGradesHorarias;
 
     /**
      * @return the listaDisciplinas
      */
-    public ArrayList<DisciplinaBean> getListaDisciplinas() {
+    public List<DisciplinaBean> getListaDisciplinas() {
         return listaDisciplinas;
     }
 
     /**
      * @param listaDisciplinas the listaDisciplinas to set
      */
-    public void setListaDisciplinas(ArrayList<DisciplinaBean> listaDisciplinas) {
+    public void setListaDisciplinas(List<DisciplinaBean> listaDisciplinas) {
         this.listaDisciplinas = listaDisciplinas;
     }
 
     /**
      * @return the listaGradesHorarias
      */
-    public ArrayList<GradeHorariaBean> getListaGradesHorarias() {
+    public List<GradeHorariaBean> getListaGradesHorarias() {
         return listaGradesHorarias;
     }
 
     /**
      * @param listaGradesHorarias the listaGradesHorarias to set
      */
-    public void setListaGradesHorarias(ArrayList<GradeHorariaBean> listaGradesHorarias) {
+    public void setListaGradesHorarias(List<GradeHorariaBean> listaGradesHorarias) {
         this.listaGradesHorarias = listaGradesHorarias;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.listaDisciplinas);
+        hash = 89 * hash + Objects.hashCode(this.listaGradesHorarias);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final ProfessorBean other = (ProfessorBean) obj;
+        if (!Objects.equals(this.listaDisciplinas, other.listaDisciplinas)) {
+            return false;
+        }
+        if (!Objects.equals(this.listaGradesHorarias, other.listaGradesHorarias)) {
+            return false;
+        }
+        return true;
     }
 
  

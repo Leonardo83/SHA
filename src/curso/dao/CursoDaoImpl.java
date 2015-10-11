@@ -10,7 +10,7 @@ import util.BaseDaoImpl;
 
 /**
  *
- * @author Kernel
+ * @author GRUPO KERNEL
  */
 public class CursoDaoImpl extends BaseDaoImpl<CursoBean> implements CursoDao{
 

@@ -5,18 +5,24 @@
  */
 package modulo.bean;
 
-import disciplina.bean.DisciplinaBean;
 import curso.bean.CursoBean;
+import disciplina.bean.DisciplinaBean;
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 /**
  *
@@ -37,12 +43,14 @@ public class ModuloBean implements Serializable{
     @Column(name ="cargahorariamodulo")
     private Integer cargaHorariaModulo;
     
-    @ManyToMany 
-    @Column(name ="curso_id")
+    @ManyToOne
+    @JoinColumn(name ="curso_id")
+    @Cascade(CascadeType.REMOVE)
     private CursoBean curso;    
     
-    
-    private ArrayList<DisciplinaBean> listaDisciplinas;
+    @OneToMany(mappedBy = "disciplina", targetEntity = DisciplinaBean.class, fetch = FetchType.LAZY)
+    @Cascade(CascadeType.ALL)
+    private List<DisciplinaBean> listaDisciplinas;
 
     /**
      * @return the id
@@ -103,15 +111,15 @@ public class ModuloBean implements Serializable{
     /**
      * @return the listaDisciplinas
      */
-    public ArrayList<DisciplinaBean> getListaDisciplinas() {
+    public List<DisciplinaBean> getListaDisciplinas() {
         return listaDisciplinas;
     }
 
     /**
      * @param listaDisciplinas the listaDisciplinas to set
      */
-    public void setListaDisciplinas(ArrayList<DisciplinaBean> listaDisciplinas) {
-        this.listaDisciplinas = listaDisciplinas;
+    public void setListaDisciplinas(List<DisciplinaBean> listaDisciplinas) {
+      this.listaDisciplinas = listaDisciplinas;
     }
 
     @Override

@@ -12,6 +12,8 @@ import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import modulo.bean.ModuloBean;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 /**
  *
@@ -21,11 +23,13 @@ import modulo.bean.ModuloBean;
 public class DisciplinaModuloPK implements Serializable {
 
     @ManyToOne
-    @JoinColumn(name = "professor_id")
+    @JoinColumn(name = "disciplina_id")
+    @Cascade(CascadeType.REMOVE)
     private DisciplinaBean disciplina;
 
     @ManyToOne
-    @JoinColumn(name = "disciplina_id")
+    @JoinColumn(name = "modulo_id")
+    @Cascade(CascadeType.REMOVE)
     private ModuloBean modulo;
 
     public DisciplinaBean getDisciplina() {

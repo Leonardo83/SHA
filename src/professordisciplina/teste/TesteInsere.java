@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package professordisciplina.teste;
 
 import disciplina.bean.DisciplinaBean;
@@ -23,35 +22,32 @@ import util.DaoException;
  * @author KERNEL
  */
 public class TesteInsere {
-    
+
     public static void main(String[] args) {
         ProfessorDisciplinaBean pd = new ProfessorDisciplinaBean();
         ProfessorDisciplinaPK pdk = new ProfessorDisciplinaPK();
         ProfessorBean professor = null;
         DisciplinaBean disciplina = null;
-        
+
         ProfessorDaoImpl professorDao = new ProfessorDaoImpl();
         try {
             professor = professorDao.selecionar(1);
         } catch (DaoException ex) {
             Logger.getLogger(TesteInsere.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
         DisciplinaDaoImpl disciplinaDao = new DisciplinaDaoImpl();
         try {
             disciplina = disciplinaDao.selecionar(1);
         } catch (DaoException ex) {
             Logger.getLogger(TesteInsere.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+
         pdk.setProfessor(professor);
         pdk.setDisciplina(disciplina);
-        
+
         pd.setProfessordisciplina(pdk);
-        
-        
+
         ProfessorDisciplinaDaoImpl pdd = new ProfessorDisciplinaDaoImpl();
         try {
             pdd.inserir(pd);
@@ -59,5 +55,5 @@ public class TesteInsere {
             Logger.getLogger(TesteInsere.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 }

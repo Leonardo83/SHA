@@ -7,14 +7,18 @@ package disciplina.bean;
 
 import horariosDia.bean.HorariosDiaBean;
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import modulo.bean.ModuloBean;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import professor.bean.ProfessorBean;
 
 /**
@@ -40,10 +44,19 @@ public class DisciplinaBean implements Serializable {
     @Column(name = "carga_horaria")
     private Integer cargaHoraria;
     
+    @OneToMany(mappedBy = "professor",targetEntity = ProfessorBean.class,fetch = FetchType.LAZY)
+    @Cascade(CascadeType.ALL)
+    private List<ProfessorBean> listaProfessores;
     
-    private ArrayList<ProfessorBean> listaProfessores;
-    private ArrayList<ModuloBean> listaModulos;
-    private ArrayList<HorariosDiaBean> listaHorariosDia;
+    
+    @OneToMany(mappedBy = "modulo")
+    @Cascade(CascadeType.ALL)
+    private List<ModuloBean> listaModulos;
+    
+    
+    @OneToMany(mappedBy = "horariosdia")
+    @Cascade(CascadeType.ALL)
+    private List<HorariosDiaBean> listaHorariosDia;
 
     /**
      * @return the id
@@ -87,48 +100,31 @@ public class DisciplinaBean implements Serializable {
         this.sigla = sigla;
     }
 
-    /**
-     * @return the listaProfessores
-     */
-    public ArrayList<ProfessorBean> getListaProfessores() {
+    public List<ProfessorBean> getListaProfessores() {
         return listaProfessores;
     }
 
-    /**
-     * @param listaProfessores the listaProfessores to set
-     */
-    public void setListaProfessores(ProfessorBean professor) {
-        this.listaProfessores.add(professor);
+    public void setListaProfessores(List<ProfessorBean> listaProfessores) {
+        this.listaProfessores = listaProfessores;
     }
 
-    /**
-     * @return the listaModulos
-     */
-    public ArrayList<ModuloBean> getListaModulos() {
+    public List<ModuloBean> getListaModulos() {
         return listaModulos;
     }
 
-    /**
-     * @param listaModulos the listaModulos to set
-     */
-    public void setListaModulos(ModuloBean modulo) {
-        this.listaModulos.add(modulo);
+    public void setListaModulos(List<ModuloBean> listaModulos) {
+        this.listaModulos = listaModulos;
     }
 
-    /**
-     * @return the listaHorariosDia
-     */
-    public ArrayList<HorariosDiaBean> getListaHorariosDia() {
+    public List<HorariosDiaBean> getListaHorariosDia() {
         return listaHorariosDia;
     }
 
-    /**
-     * @param listaHorariosDia the listaHorariosDia to set
-     */
-    public void setListaHorariosDia(HorariosDiaBean listaHorariosDia) {
-        this.listaHorariosDia.add(listaHorariosDia);
+    public void setListaHorariosDia(List<HorariosDiaBean> listaHorariosDia) {
+        this.listaHorariosDia = listaHorariosDia;
     }
 
+  
     /**
      * @return the cargaHoraria
      */

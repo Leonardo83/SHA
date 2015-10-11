@@ -15,7 +15,7 @@ public class TesteSelecionar {
         DisciplinaDaoImpl ddi = new DisciplinaDaoImpl();
         
         try {
-            DisciplinaBean db = (DisciplinaBean) ddi.selecionar(2);
+            DisciplinaBean db = ddi.selecionar(2);
             
             System.out.println(db.getNome());
             System.out.println(db.getSigla());

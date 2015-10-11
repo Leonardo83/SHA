@@ -16,7 +16,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -37,15 +36,15 @@ public class TurmaBean implements Serializable{
     private String codigo;
     
     @ManyToOne
-    @JoinColumn(name="curso_id")
+    @JoinColumn(name="modulo_id")
     private ModuloBean modulo;
     
-    @OneToMany
-    @Column(name="id")
+    @ManyToOne
+    @Column(name="turno_id")
     private TurnoBean turno;
     
-    @OneToMany
-    @JoinColumn(name="professor_id")
+    @ManyToOne
+    @JoinColumn(name="curso_id")
     private CursoBean curso;
 
     public Integer getId() {

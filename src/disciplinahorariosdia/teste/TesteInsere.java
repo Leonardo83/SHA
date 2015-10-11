@@ -3,18 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package disciplinamodulo.teste;
+package disciplinahorariosdia.teste;
 
 import disciplina.bean.DisciplinaBean;
 import disciplina.dao.DisciplinaDaoImpl;
-import disciplinamodulo.bean.DisciplinaModuloBean;
-import disciplinamodulo.dao.DisciplinaModuloDaoImpl;
+import disciplinahorariosdia.bean.DisciplinaHorariosDiaBean;
+import disciplinahorariosdia.bean.DisciplinaHorariosDiaPK;
+import disciplinahorariosdia.dao.DisciplinaHorariosDiaDaoImpl;
+import horariosDia.bean.HorariosDiaBean;
+import horariosDia.dao.HorariosDiaDaoImpl;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modulo.bean.ModuloBean;
-import disciplinamodulo.bean.DisciplinaModuloPK;
-import modulo.dao.ModuloDaoImpl;
 
 import util.DaoException;
 
@@ -23,41 +22,38 @@ import util.DaoException;
  * @author KERNEL
  */
 public class TesteInsere {
-    
+
     public static void main(String[] args) {
-        DisciplinaModuloBean dmb = new DisciplinaModuloBean();
-        DisciplinaModuloPK dmk = new DisciplinaModuloPK();
+        DisciplinaHorariosDiaBean dhb = new DisciplinaHorariosDiaBean();
+        DisciplinaHorariosDiaPK dhk = new DisciplinaHorariosDiaPK();
         DisciplinaBean disciplina = null;
-        ModuloBean modulo = null;
-        
-        DisciplinaDaoImpl disciplinaDaoImpl = new DisciplinaDaoImpl();
+        HorariosDiaBean horario = null;
+
+        DisciplinaDaoImpl disciplinaDao = new DisciplinaDaoImpl();
         try {
-            disciplina = disciplinaDaoImpl.selecionar(1);
+            disciplina = disciplinaDao.selecionar(1);
         } catch (DaoException ex) {
             Logger.getLogger(TesteInsere.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        ModuloDaoImpl moduloDao = new ModuloDaoImpl();
+
+        HorariosDiaDaoImpl horarioDao = new HorariosDiaDaoImpl();
         try {
-            modulo = moduloDao.selecionar(1);
+            horario = horarioDao.selecionar(1);
         } catch (DaoException ex) {
             Logger.getLogger(TesteInsere.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        dhk.setHorariodia(horario);
+        dhk.setDisciplina(disciplina);
+
+        dhb.setDisciplinahorariosdia(dhk); 
         
-        
-        dmk.setDisciplina(disciplina);
-        dmk.setModulo(modulo);
-        
-        dmb.setDisciplinamodulo(dmk);
-        
-        
-        DisciplinaModuloDaoImpl dmdi = new DisciplinaModuloDaoImpl();
+        DisciplinaHorariosDiaDaoImpl dhdd    = new DisciplinaHorariosDiaDaoImpl();
         try {
-            dmdi.inserir(dmb);
+            dhdd.inserir(dhb);
         } catch (DaoException ex) {
             Logger.getLogger(TesteInsere.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 }

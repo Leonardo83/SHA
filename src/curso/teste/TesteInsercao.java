@@ -7,8 +7,10 @@ package curso.teste;
 
 import curso.bean.CursoBean;
 import curso.dao.CursoDaoImpl;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modulo.bean.ModuloBean;
 import professor.bean.ProfessorBean;
 import util.DaoException;
 
@@ -20,7 +22,7 @@ public class TesteInsercao {
 
     public static void main(String[] args) {
         ProfessorBean pf = new ProfessorBean();
-        pf.setId(8);
+        pf.setId(1);
 
         CursoBean cb = new CursoBean();
 
@@ -30,6 +32,16 @@ public class TesteInsercao {
         cb.setSigla("TADS");
         cb.setCargaHoraria(3000);
 
+        ModuloBean mb = new ModuloBean();
+        mb.setNome("I");
+        mb.setCargaHorariaModulo(40);
+        mb.setCurso(cb);
+
+        ArrayList<ModuloBean> modulos = new ArrayList<>();
+        modulos.add(mb);
+
+        cb.setListaModulos(modulos);
+        
         CursoDaoImpl cd = new CursoDaoImpl();
         try {
             cd.inserir(cb);

@@ -14,5 +14,9 @@
     <mapping class="disciplina.bean.DisciplinaBean"/>
     <mapping class="professor.bean.ProfessorBean"/>
     <mapping class="professordisciplina.bean.ProfessorDisciplinaBean"/>
+    <mapping class="modulo.bean.ModuloBean"/>
+    <mapping class="disciplinamodulo.bean.DisciplinaModuloBean"/>
+    <mapping class="disciplinahorariosdia.bean.DisciplinaHorariosDiaBean"/>
+    <mapping class="horariosDia.bean.HorariosDiaBean"/>
   </session-factory>
 </hibernate-configuration>

@@ -20,7 +20,7 @@ public class TesteSelecionar {
         PerfilDaoImpl pd = new PerfilDaoImpl();
         
         try {
-            PerfilBean pb = (PerfilBean) pd.selecionar(1);
+            PerfilBean pb = pd.selecionar(1);
             
             System.out.println(pb.getId());
             System.out.println(pb.getTipoPerfil());

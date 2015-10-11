@@ -3,15 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package curso.dao;
+package disciplinahorariosdia.dao;
 
-import curso.bean.CursoBean;
+import disciplinahorariosdia.bean.DisciplinaHorariosDiaBean;
 import util.BaseDao;
 
 /**
  *
- * @author GRUPO KERNEL
+ * @author KERNEL
  */
-public interface CursoDao extends BaseDao<CursoBean>{
-    
+public interface DisciplinaHorariosDiaDao extends BaseDao<DisciplinaHorariosDiaBean> {
 }

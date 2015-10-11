@@ -20,7 +20,7 @@ public class TesteSelecionar {
         DisciplinaDaoImpl ddi = new DisciplinaDaoImpl();
         
         try {
-            DisciplinaBean db = (DisciplinaBean) ddi.selecionar(2);
+            DisciplinaBean db = ddi.selecionar(2);
             System.out.println(db.getNome());
         } catch (DaoException ex) {
             Logger.getLogger(TesteSelecionar.class.getName()).log(Level.SEVERE, null, ex);

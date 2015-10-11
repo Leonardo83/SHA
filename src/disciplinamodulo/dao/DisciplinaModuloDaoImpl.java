@@ -12,7 +12,7 @@ import util.BaseDaoImpl;
 
 /**
  *
- * @author giocondo
+ * @author GRUPO KERNEL
  */
 public class DisciplinaModuloDaoImpl extends BaseDaoImpl<DisciplinaModuloBean> implements DisciplinaModuloDao{
 

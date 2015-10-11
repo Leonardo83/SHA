@@ -16,7 +16,7 @@ public class TesteSelecionar {
         ProfessorDaoImpl pd = new ProfessorDaoImpl();
 
         try {
-            ProfessorBean professor = (ProfessorBean) pd.selecionar(1);
+            ProfessorBean professor = pd.selecionar(1);
             System.out.println(professor.getId());
             System.out.println(professor.getNome());
             System.out.println(professor.getMatricula());
