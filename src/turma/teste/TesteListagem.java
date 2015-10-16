@@ -8,8 +8,7 @@ package turma.teste;
 import curso.bean.CursoBean;
 import curso.dao.CursoDaoImpl;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
 import modulo.bean.ModuloBean;
 import modulo.dao.ModuloDaoImpl;
 import turma.bean.TurmaBean;
@@ -23,29 +22,28 @@ import util.DaoException;
  * @author GRUPO KERNEL
  */
 public class TesteListagem {
-    
-    public static void main(String[] args) {
+
+    public static void main(String[] args) throws DaoException {
         TurmaDaoImpl td = new TurmaDaoImpl();
-        CursoDaoImpl cd = new CursoDaoImpl();
-        TurnoDaoImpl turd = new TurnoDaoImpl();
-        ModuloDaoImpl md = new ModuloDaoImpl();
         
-        CursoBean cb = new CursoBean();
-        TurnoBean turb = new TurnoBean();
-        ModuloBean mb = new ModuloBean();
                 
-        try {
-            ArrayList<TurmaBean> turmas = (ArrayList<TurmaBean>) td.listar();
-            ArrayList<CursoBean> cursos = (ArrayList<CursoBean>) cd.listar();
-            ArrayList<TurnoBean> turnos = (ArrayList<TurnoBean>) turd.listar();
-            ArrayList<ModuloBean> modulos = (ArrayList<ModuloBean>) md.listar();
-            for (TurmaBean tb : turmas) {
-                System.out.println("Turma: " + tb.getCodigo() + " Curso: " + cb.getNome()
-                        + "Turno: " + turb.getTipoTurno() + " Modulo: " + mb.getNome());                
-                System.out.println("------------------");
-            }
-        } catch (DaoException ex) {
-            Logger.getLogger(TesteListagem.class.getName()).log(Level.SEVERE, null, ex);
+        CursoBean cb = new CursoBean();
+        TurnoBean tub = new TurnoBean();
+        ModuloBean mb = new ModuloBean();
+
+//        CursoDaoImpl cdi = new CursoDaoImpl();
+//        TurnoDaoImpl tdi = new TurnoDaoImpl();
+//        ModuloDaoImpl mdi = new ModuloDaoImpl();
+        
+        ArrayList<TurmaBean> turmas = (ArrayList<TurmaBean>) td.listar();
+        for (TurmaBean tb : turmas) {
+          tb.setCurso(cb);
+          tb.setTurno(tub);
+          tb.setModulo(mb);
+          
+            System.out.println("Turma: " + tb.getCodigo() + " Curso: " + cb.getNome()
+                    + "Turno: " + tub.getTipoTurno()+ " Modulo: " + mb.getNome());
+            System.out.println("------------------");
         }
-    }   
+    }
 }

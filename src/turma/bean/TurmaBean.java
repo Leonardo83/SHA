@@ -24,27 +24,28 @@ import javax.persistence.Table;
  * @author GRUPO KERNEL
  */
 @Entity
-@Table(name="turmas")
-public class TurmaBean implements Serializable{
+@Table(name = "turmas")
+public class TurmaBean implements Serializable {
+
     @Id
     @Column(name = "id")
     @SequenceGenerator(name = "seq_turmas", sequenceName = "turmas_id_seq")
     @GeneratedValue(generator = "seq_turmas")
     private Integer id;
-    
-    @Column(name="codigo")
+
+    @Column(name = "codigo")
     private String codigo;
-    
+
     @ManyToOne
-    @JoinColumn(name="modulo_id")
+    @JoinColumn(name = "modulo_id")
     private ModuloBean modulo;
-    
+
     @ManyToOne
-    @Column(name="turno_id")
+    @JoinColumn(name = "turno_id")
     private TurnoBean turno;
-    
+
     @ManyToOne
-    @JoinColumn(name="curso_id")
+    @JoinColumn(name = "curso_id")
     private CursoBean curso;
 
     public Integer getId() {
@@ -90,11 +91,11 @@ public class TurmaBean implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 71 * hash + Objects.hashCode(this.id);
-        hash = 71 * hash + Objects.hashCode(this.codigo);
-        hash = 71 * hash + Objects.hashCode(this.modulo);
-        hash = 71 * hash + Objects.hashCode(this.turno);
-        hash = 71 * hash + Objects.hashCode(this.curso);
+        hash = 23 * hash + Objects.hashCode(this.id);
+        hash = 23 * hash + Objects.hashCode(this.codigo);
+        hash = 23 * hash + Objects.hashCode(this.modulo);
+        hash = 23 * hash + Objects.hashCode(this.turno);
+        hash = 23 * hash + Objects.hashCode(this.curso);
         return hash;
     }
 
@@ -125,5 +126,5 @@ public class TurmaBean implements Serializable{
         return true;
     }
 
-    
+   
 }
