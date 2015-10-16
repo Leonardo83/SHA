@@ -18,7 +18,7 @@ import util.DaoException;
 public class TesteAlterar {
     public static void main(String[] args) {
         PerfilBean pb = new PerfilBean();
-        pb.setId(4);
+        pb.setId(1);
         pb.setTipoPerfil("User");
         
         
