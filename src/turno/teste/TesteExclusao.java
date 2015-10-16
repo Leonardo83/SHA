@@ -15,7 +15,7 @@ public class TesteExclusao {
 
     public static void main(String[] args) {
         TurnoBean tb = new TurnoBean();
-        tb.setId(1);
+        tb.setId(3);
         
         TurnoDaoImpl td = new TurnoDaoImpl();
 

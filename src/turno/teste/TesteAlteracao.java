@@ -15,7 +15,7 @@ public class TesteAlteracao {
     public static void main(String[] args) {
         TurnoBean tb = new TurnoBean();
         
-        tb.setId(4);
+        tb.setId(2);
         tb.setTipoTurno("MADRUGADA");
         
         TurnoDaoImpl td = new TurnoDaoImpl();

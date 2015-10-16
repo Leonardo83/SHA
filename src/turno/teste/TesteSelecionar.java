@@ -15,7 +15,7 @@ public class TesteSelecionar {
         TurnoDaoImpl td = new TurnoDaoImpl();
         
         try {
-            TurnoBean tb = td.selecionar(1);
+            TurnoBean tb = td.selecionar(2);
             System.out.println(tb.getTipoTurno());
         } catch (DaoException ex) {
             Logger.getLogger(TesteSelecionar.class.getName()).log(Level.SEVERE, null, ex);

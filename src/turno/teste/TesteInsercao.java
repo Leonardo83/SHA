@@ -1,7 +1,6 @@
 package turno.teste;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import turno.bean.TurnoBean;
 import turno.dao.TurnoDaoImpl;
 import util.DaoException;
@@ -18,14 +17,11 @@ public class TesteInsercao {
         TurnoBean tb = new TurnoBean();
         TurnoDaoImpl td = new TurnoDaoImpl();
         
-        tb.setTipoTurno("QUALQUER");
+        tb.setTipoTurno("OUTROS");
+        
         
          try {
-            if (td.inserir(tb) != null) {
-                    JOptionPane.showMessageDialog(null, "Turno inserido com sucesso!");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Erro de inserção!");
-                }
+             td.inserir(tb);  
         } catch (DaoException ex) {
             Logger.getLogger(TesteInsercao.class.getName()).log(Level.SEVERE, null, ex);
         }  
