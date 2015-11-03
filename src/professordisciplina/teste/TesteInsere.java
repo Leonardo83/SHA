@@ -7,14 +7,11 @@ package professordisciplina.teste;
 
 import disciplina.bean.DisciplinaBean;
 import disciplina.dao.DisciplinaDaoImpl;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import professor.bean.ProfessorBean;
 import professor.dao.ProfessorDaoImpl;
-import professordisciplina.bean.ProfessorDisciplinaBean;
-import professordisciplina.bean.ProfessorDisciplinaPK;
-import professordisciplina.dao.ProfessorDisciplinaDaoImpl;
-
 import util.DaoException;
 
 /**
@@ -24,36 +21,34 @@ import util.DaoException;
 public class TesteInsere {
 
     public static void main(String[] args) {
-        ProfessorDisciplinaBean pd = new ProfessorDisciplinaBean();
-        ProfessorDisciplinaPK pdk = new ProfessorDisciplinaPK();
-        ProfessorBean professor = null;
-        DisciplinaBean disciplina = null;
+        ProfessorDaoImpl pdi = new ProfessorDaoImpl();
+        
+        ProfessorBean professor = new ProfessorBean();
+        professor.setId(6);
+        professor.setNome("Beltrano");
+        professor.setMatricula("123789");
 
-        ProfessorDaoImpl professorDao = new ProfessorDaoImpl();
+        //DisciplinaDaoImpl ddi = new DisciplinaDaoImpl();
+        DisciplinaBean matematica = new DisciplinaBean();
+        DisciplinaBean portugues = new DisciplinaBean();
+        matematica.setId(1);
+        portugues.setId(2);
+
+        ArrayList<ProfessorBean> professores = new ArrayList();
+        professores.add(professor);
+        matematica.setListaProfessores(professores);
+        
+        ArrayList<DisciplinaBean> disciplinas = new ArrayList();
+        disciplinas.add(matematica);
+        disciplinas.add(portugues);
+        professor.setListaDisciplinas(disciplinas);
+        
         try {
-            professor = professorDao.selecionar(1);
+            pdi.alterar(professor);
+            //System.out.println("Disciplinas para o professor " + professor.getNome() + " inseridas com suscesso");
         } catch (DaoException ex) {
             Logger.getLogger(TesteInsere.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        DisciplinaDaoImpl disciplinaDao = new DisciplinaDaoImpl();
-        try {
-            disciplina = disciplinaDao.selecionar(1);
-        } catch (DaoException ex) {
-            Logger.getLogger(TesteInsere.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        pdk.setProfessor(professor);
-        pdk.setDisciplina(disciplina);
-
-        pd.setProfessordisciplina(pdk);
-
-        ProfessorDisciplinaDaoImpl pdd = new ProfessorDisciplinaDaoImpl();
-        try {
-            pdd.inserir(pd);
-        } catch (DaoException ex) {
-            Logger.getLogger(TesteInsere.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
-
 }
